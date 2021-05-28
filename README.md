@@ -1,5 +1,5 @@
 # snowflake-rsa-auth
-This captures details on how to use Key Pairs to connect to Snowflake using PySpark.
+Use Key Pairs to connect to Snowflake using PySpark.
 
 ## Background and Scope
 Snowflake data can be accessed from different Snowflake clients(e.g. SnowSQL CLI, JDBC Driver, Snowflake Connector for Spark etc.) For more details on Snowflake connector & driver use this [link](https://docs.snowflake.com/en/user-guide/conns-drivers.html).
@@ -59,9 +59,19 @@ desc user <username>
 ![image](images/SnowflakeUserPublicKey.png)
 
 __5. Configure Snowflake Client(in this case PySpark script) to use RSA authentication__
-<<to be added>>
+
+The pyspark code is added [here](TestSnowflakeRSA.py). The code reads the private key, creates spark session, builds snowflake context and then finally connects to snowflake to read data.
+
+To execute the code use below command
+
+```sh
+$ spark-submit .../TestSnowflakeRSA.py
+```
+__Tip:__ Add these jars in Spark classpath - snowflake-jdbc-3.13.3.jar and spark-snowflake_2.12-2.8.5-spark_3.0.jar.
+
 
 ## Key points to note
+
 - This authentication method requires, as a minimum, a 2048-bit RSA key pair
 - Snowflake supports uninterrupted rotation of public keys, uses two RSA Public Key properties to do same
 - Creating encrypted private key, requires using a passphrase. Snowflake recommens PCI DSS standard to generate the passphrase.
