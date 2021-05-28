@@ -41,14 +41,14 @@ This steps creates public key using the private key.
 openssl rsa -in sf_rsa_key.p8 -pubout -out sf_rsa_key.pub
 ```
 
-__3. Assign public key to Snowflake user
+__3. Assign public key to Snowflake user__
 
 Open the public key file in a text editor(I have used VSCode) and copy the key. Then execute below from Snowflake UI or CLI.
 
 ```sh
 alter user <username> set RSA_PUBLIC_KEY = '<key-value>;
 ```
-__4. Veirfy
+__4. Veirfy__
 
 Use below command to verify that public key is added.
 
@@ -58,7 +58,7 @@ desc user <username>
 
 ![image](images/SnowflakeUserPublicKey.png)
 
-__5. Configure Snowflake Client(in this case PySpark script) to use RSA authentication
+__5. Configure Snowflake Client(in this case PySpark script) to use RSA authentication__
 <<to be added>>
 
 ## Key points to note
