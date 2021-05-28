@@ -56,8 +56,7 @@ Use below command to verify that public key is added.
 desc user <username>
 ```
 
-![image](https://user-images.githubusercontent.com/67356200/119945219-c51e6f00-bf5a-11eb-84bf-81e0d72ae094.png)
-
+![image](images/SnowflakeUserPublicKey.png)
 
 __5. Configure Snowflake Client(in this case PySpark script) to use RSA authentication
 <<to be added>>
